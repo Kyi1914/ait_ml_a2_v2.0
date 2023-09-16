@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  dash:
+    # This is for that asking the container to execute the main.py
+    command: python3 app_flask.py
+    # The image I upload to my docker hub
+    image: kyithinnu/a2carpriceprediction:3.2
+    # For MAC M1 user
+    platform: linux/x86_64
+    # This will ask DASH to run on 0.0.0.0 and port 80
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    environment:
+      - HOST=0.0.0.0
+      - PORT = 80

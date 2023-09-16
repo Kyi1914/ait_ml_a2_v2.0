@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 2 - Car Price Prediction for Chaky Company</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Car Price Prediction for Chaky Company (old model) </h1>
+        <p>Experience the fascinating world of car price prediction with our regression model. Our old model leverages unrelated features from the dataset to estimate car prices, making use of the "mileage," "brand," and "year" attributes as its driving factors.</p>
+        <p>While we have limited our analysis to just two features, it's important to note that our model's predictive accuracy might be constrained. However, we're excited to provide you with insights into how these features can influence car prices.</p>
+        <p>To get an approximate price prediction for your car, simply provide details for mileage, brand, and year in the fields below, and we'll offer you an approximate price prediction to satisfy your curiosity.</p>
+        <form method="post" action="/a1_predict">
+            <label for="mileage">Mileage:</label>
+            <input type="text" id="mileage" name="mileage" required>
+            
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" required>
+            
+            <label for="brand">Brand:</label>
+            <select id="brand" name="brand" required>
+                <option value="0"> 0: Ambassador </option>
+                <option value="1"> 1: Ashok </option>
+                <option value="2">2: Audi </option>
+                <option value="3">3: BMW</option>
+                <option value="4">4: Chevrolet</option>
+                <option value="5">5: Daewoo</option>
+                <option value="6">6: Datsun</option>
+                <option value="7">7: Fiat</option>
+                <option value="8">8: Force</option>
+                <option value="9">9: Ford</option>
+                <option value="10">10: Honda</option>
+                <option value="11">11: Hyundai</option>
+                <option value="12">12: Isuzu</option>
+                <option value="13">13: Juguar</option>
+                <option value="14">14: Jeep</option>
+                <option value="15">15: Kia</option>
+                <option value="16">16: Land</option>
+                <option value="17">17: Lexus</option>
+                <option value="18">18: MG</option>
+                <option value="19">19: Mahindra</option>
+                <option value="20">20: Maruti</option>
+                <option value="21">21: Mercedes-Benz</option>
+                <option value="22">22: Mitsubishi</option>
+                <option value="23">23: Nissan</option>
+                <option value="24">24: Opel </option>
+                <option value="25">25: Peugeot </option>
+                <option value="26">26: Renault</option>
+                <option value="27">27: Skoda</option>
+                <option value="28">28: Tata</option>
+                <option value="29">29: Toyota</option>
+                <option value="30">30: Volkswagen</option>
+                <option value="31">31: Volvo</option>
+            </select>
+            
+            <button type="submit">Predict Car Price</button>
+        </form>
+        {% if prediction %}
+        <p>Prediction: {{ prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

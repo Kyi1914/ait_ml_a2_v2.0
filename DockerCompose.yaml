@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  dev:
+    image: kyithinnu/st124087
+    # platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    volumes:
+      - ./source_code:/root/sourceCode
+      - ./vscode-sever:/root/.vscode-server
+  mlflow:
+    image: kyithinnu:A2-CarPricePrediction-mlflow
+    platform: linux/x86_64
+    build: 
+      context: .
+      dockerfile: mlflow.Dockerfile
+    # volumes:
+    # - ./_mlflow:/mlflow
+    ports:
+      - 9999:5000
+
+
+# version: '3.9'
+
+# services:
+#   python:
+#     image: akraradets/ait-ml-python:2023
+#     platform: linux/x86_64
+#     build: 
+#       context: .
+#       dockerfile: python.Dockerfile
+#     volumes:
+#       - ./:/root/code
+#       - .vscode-server:/root/.vscode-server
+
+# docker tag kyithinnu:A2-CarPricePrediction [YOUR_USERNAME]/[REPOSITORY_NAME]:x86_64
